@@ -6,14 +6,14 @@
 #    By: min-jo <min-jo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 20:44:47 by min-jo            #+#    #+#              #
-#    Updated: 2022/04/26 20:28:17 by min-jo           ###   ########.fr        #
+#    Updated: 2022/05/01 14:23:47 by min-jo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 
 SRC_DIR		=	src/
-SRC_ORI		=	philo.c str.c parse.c
+SRC_ORI		=	main.c str.c parse.c philo.c philo2.c run.c ft_time.c
 
 HD_DIR		=	include/
 
@@ -21,7 +21,7 @@ SRCS		=	$(addprefix $(SRC_DIR), $(SRC_ORI))
 
 OBJS		=	$(SRCS:.c=.o)
 
-CFLAGS		+=	-Wall -Wextra -Werror -MD
+CFLAGS		+=	-Wall -Wextra -Werror -MD -g -fsanitize=address
 CPPFLAGS	+=	-I $(HD_DIR)
 LDFALGS		+=	-lpthread
 

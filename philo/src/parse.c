@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: min-jo <min-jo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:13:53 by min-jo            #+#    #+#             */
-/*   Updated: 2022/04/27 14:27:06 by min-jo           ###   ########.fr       */
+/*   Updated: 2022/04/30 13:36:50 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
 #include "parse.h"
 
 enum e_state_philo_parse	state_philo_parse_space(char c, int *num)
@@ -81,7 +80,6 @@ int	parse(t_simul *simul, int argc, const char *argv[])
 	int		i;
 	int		res;
 
-	*simul = (t_simul){0, {0, 0}, 0, {0, 0, 0}, 0};
 	res = parse_num(argv[1]);
 	if (-1 == res)
 		return (-1);
@@ -92,7 +90,7 @@ int	parse(t_simul *simul, int argc, const char *argv[])
 		res = parse_num(argv[i]);
 		if (-1 == res)
 			return (-1);
-		simul->time[i - 2] = res * 1000;
+		simul->share->time[i - 2] = set_time_ms(res);
 		++i;
 	}
 	if (5 == argc)
@@ -100,6 +98,6 @@ int	parse(t_simul *simul, int argc, const char *argv[])
 	res = parse_num(argv[5]);
 	if (-1 == res)
 		return (-1);
-	simul->must_eat = res;
+	simul->share->must_eat = res;
 	return (0);
 }
