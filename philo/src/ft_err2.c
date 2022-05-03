@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run.h                                              :+:      :+:    :+:   */
+/*   ft_err2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 17:53:44 by min-jo            #+#    #+#             */
-/*   Updated: 2022/05/07 15:48:33 by min-jo           ###   ########.fr       */
+/*   Created: 2022/05/05 18:30:27 by min-jo            #+#    #+#             */
+/*   Updated: 2022/05/07 15:02:49 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RUN_H
-# define RUN_H
+#include <stddef.h>
+#include "ft_err.h"
 
-# include "philo.h"
-# include "ft_err.h"
+t_err	empty_err(void)
+{
+	return ((t_err){ERR_WHO_NONE, NULL, 0, NULL});
+}
 
-t_err	create(t_simul *simul);
-t_err	check_anyone_die(t_simul *simul, bool *flag_finish);
-t_err	monitoring(t_simul *simul);
-t_err	wait_for_join(t_simul *simul, int cnt);
-t_err	run_and_join(t_simul *simul);
+int	is_err(t_err err)
+{
+	if (ERR_WHO_NONE == err.who
+		&& NULL == err.key
+		&& 0 == err.no
+		&& NULL == err.where)
+		return (0);
+	return (1);
+}
 
-#endif
+int	is_err_than_print(t_err err)
+{
+	if (is_err(err))
+	{
+		print_err(err);
+		return (-1);
+	}
+	return (0);
+}

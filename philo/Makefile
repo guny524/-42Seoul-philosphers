@@ -3,17 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: min-jo <min-jo@student.42.fr>              +#+  +:+       +#+         #
+#    By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 20:44:47 by min-jo            #+#    #+#              #
-#    Updated: 2022/05/01 14:23:47 by min-jo           ###   ########.fr        #
+#    Updated: 2022/05/07 16:08:27 by min-jo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 
 SRC_DIR		=	src/
-SRC_ORI		=	main.c str.c parse.c philo.c philo2.c run.c ft_time.c
+SRC_ORI		=	main.c parse.c run.c philo.c philo_state.c ft_time.c ft_str.c\
+				ft_err.c ft_err2.c
 
 HD_DIR		=	include/
 
@@ -40,7 +41,9 @@ clean:
 fclean:		clean
 	rm -f $(NAME)
 
-re:			fclean all
+re:
+	make fclean
+	make all
 
 .PHONY:		all clean fclean re
 

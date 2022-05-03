@@ -6,7 +6,7 @@
 /*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:31:26 by min-jo            #+#    #+#             */
-/*   Updated: 2022/05/01 18:07:38 by min-jo           ###   ########.fr       */
+/*   Updated: 2022/05/08 15:15:59 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <pthread.h>
 # include <stdbool.h>
 # include "ft_time.h"
-#include "debug.h" //#
+# include "ft_err.h"
 
 typedef struct s_share
 {
@@ -29,7 +29,6 @@ typedef struct s_share
 
 enum e_philo_state
 {
-	STATE_PHILO_ERROR = -1,
 	STATE_PHILO_FORK,
 	STATE_PHILO_EAT,
 	STATE_PHILO_THINK,
@@ -65,14 +64,23 @@ typedef struct s_simul
 	int		num;
 }	t_simul;
 
+typedef struct s_err	t_err;
+
+/*
+* philo_state.c
+*/
+t_err	state_philo_fork(t_philo *philo);
+t_err	state_philo_eat(t_philo *philo);
+t_err	state_philo_think(t_philo *philo);
+t_err	state_philo_sleep(t_philo *philo);
+t_err	state_philo_one(t_philo *philo);
+
 /*
 * philo.c
 */
-enum e_philo_state	state_philo_fork(t_philo *philo);
-enum e_philo_state	state_philo_eat(t_philo *philo);
-enum e_philo_state	state_philo_think(t_philo *philo);
-enum e_philo_state	state_philo_sleep(t_philo *philo);
-enum e_philo_state	state_philo_one(t_philo *philo);
-void				*philo_run(void *arg);
+t_err	print_status(t_philo *philo);
+t_err	set_state_ret_err(t_philo *philo, enum e_philo_state state, t_err err);
+void	*state_philo_error(t_philo *philo, t_err err);
+void	*philo_run(void *arg);
 
 #endif

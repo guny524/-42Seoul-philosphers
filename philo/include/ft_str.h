@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str.h                                              :+:      :+:    :+:   */
+/*   ft_str.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: min-jo <min-jo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 17:04:40 by min-jo            #+#    #+#             */
-/*   Updated: 2022/04/30 17:05:16 by min-jo           ###   ########.fr       */
+/*   Created: 2022/05/05 15:46:17 by min-jo            #+#    #+#             */
+/*   Updated: 2022/05/08 15:14:28 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STR_H
-# define STR_H
+#ifndef FT_STR_H
+# define FT_STR_H
 
-#include "debug.h" //#
-
-/*
-* str.c
-*/
-int	print_status(t_philo *philo, enum e_philo_state state);
+int	ft_strlen(const char *str);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_strcmp(const char *s1, const char *s2);
 
 #endif

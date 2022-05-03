@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_time.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: min-jo <min-jo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:50:01 by min-jo            #+#    #+#             */
-/*   Updated: 2022/05/01 13:16:48 by min-jo           ###   ########.fr       */
+/*   Updated: 2022/05/05 20:04:22 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_time.h>
+#include "ft_time.h"
 
 struct timeval	set_time_ms(int ms)
 {

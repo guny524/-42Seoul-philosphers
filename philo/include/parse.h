@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: min-jo <min-jo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:14:00 by min-jo            #+#    #+#             */
-/*   Updated: 2022/04/30 15:35:31 by min-jo           ###   ########.fr       */
+/*   Updated: 2022/05/03 21:12:57 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PARSE_H
 
 # include "philo.h"
-#include "debug.h" //#
 
 enum e_state_philo_parse
 {
