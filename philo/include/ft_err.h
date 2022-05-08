@@ -6,7 +6,7 @@
 /*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:11:05 by min-jo            #+#    #+#             */
-/*   Updated: 2022/05/08 15:14:13 by min-jo           ###   ########.fr       */
+/*   Updated: 2022/05/08 15:48:25 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void	print_err(t_err err);
 t_err	empty_err(void);
 int		is_err(t_err err);
 int		is_err_than_print(t_err err);
+t_err	if_ret_err(t_err err1, t_err err2);
 
 #endif

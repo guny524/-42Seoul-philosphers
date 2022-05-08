@@ -6,7 +6,7 @@
 /*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:30:59 by min-jo            #+#    #+#             */
-/*   Updated: 2022/05/08 15:21:13 by min-jo           ###   ########.fr       */
+/*   Updated: 2022/05/08 16:10:54 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,9 @@
 
 t_err	init_philo(t_simul *simul, int i)
 {
-	t_err	err;
-
 	if (pthread_mutex_init(&simul->philos[i].left_fork, NULL))
-	{
-		err = destroy_all(simul, i);
-		if (is_err(err))
-			return (err);
-		return ((t_err){i, "mutex_init", errno, "left_fork"});
-	}
+		return (if_ret_err(destroy_all(simul, i),
+				(t_err){i, "mutex_init", errno, "left_fork"}));
 	if (1 == simul->num)
 		simul->philos[i].right_fork = NULL;
 	else
@@ -75,12 +69,8 @@ t_err	init_simul(t_simul *simul, int argc, const char *argv[])
 		return ((t_err){ERR_WHO_MAIN, "mutex_init", errno, "mutex_end"});
 	simul->philos = malloc(sizeof(t_philo) * simul->num);
 	if (NULL == simul->philos)
-	{
-		err = destroy_all(simul, 0);
-		if (is_err(err))
-			return (err);
-		return ((t_err){ERR_WHO_MAIN, "malloc", errno, "init_simul"});
-	}
+		return (if_ret_err(destroy_all(simul, 0),
+				(t_err){ERR_WHO_MAIN, "malloc", errno, "init_simul"}));
 	cnt = -1;
 	while (++cnt < simul->num)
 	{

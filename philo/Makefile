@@ -6,7 +6,7 @@
 #    By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 20:44:47 by min-jo            #+#    #+#              #
-#    Updated: 2022/05/07 16:08:27 by min-jo           ###   ########.fr        #
+#    Updated: 2022/05/08 16:22:03 by min-jo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	philo
 
 SRC_DIR		=	src/
 SRC_ORI		=	main.c parse.c run.c philo.c philo_state.c ft_time.c ft_str.c\
-				ft_err.c ft_err2.c
+				ft_err.c ft_err2.c run2.c
 
 HD_DIR		=	include/
 
@@ -22,7 +22,7 @@ SRCS		=	$(addprefix $(SRC_DIR), $(SRC_ORI))
 
 OBJS		=	$(SRCS:.c=.o)
 
-CFLAGS		+=	-Wall -Wextra -Werror -MD -g -fsanitize=address
+CFLAGS		+=	-Wall -Wextra -Werror -MD
 CPPFLAGS	+=	-I $(HD_DIR)
 LDFALGS		+=	-lpthread
 

@@ -6,7 +6,7 @@
 /*   By: min-jo <min-jo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:30:27 by min-jo            #+#    #+#             */
-/*   Updated: 2022/05/07 15:02:49 by min-jo           ###   ########.fr       */
+/*   Updated: 2022/05/08 15:48:52 by min-jo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,11 @@ int	is_err_than_print(t_err err)
 		return (-1);
 	}
 	return (0);
+}
+
+t_err	if_ret_err(t_err err1, t_err err2)
+{
+	if (is_err(err1))
+		return (err1);
+	return (err2);
 }
